@@ -61,10 +61,10 @@ final class LindenmeyerTests: XCTestCase {
 	func testKochCurve() throws {
 		//https://en.wikipedia.org/wiki/L-system#Example_4:_Koch_curve
 		let rules = [
-			ProductionRule(predecessor: "F", successor: "F+F−F−F+F"),
+			ProductionRule(predecessor: "F", successor: "F+F-F-F+F"),
 		]
 		let lSystem = LSystem(alphabet: ["F", "+", "-"], axiom: "F", productionRules: rules)
-		XCTAssertEqual(lSystem.produce(generationCount: 2), "F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F")
+		XCTAssertEqual(lSystem.produce(generationCount: 2), "F+F-F-F+F+F+F-F-F+F-F+F-F-F+F-F+F-F-F+F+F+F-F-F+F")
 	}
 	func testSierpinskiTriangle() throws {
 		//https://en.wikipedia.org/wiki/L-system#Example_5:_Sierpinski_triangle
@@ -73,7 +73,7 @@ final class LindenmeyerTests: XCTestCase {
     ProductionRule(predecessor: "G", successor: "GG")
   ]
   let lSystem = LSystem(alphabet: ["F", "G", "+", "-"], axiom: "F-G-G", productionRules: rules)
-		XCTAssertEqual(lSystem.produce(generationCount: 2), "F-G+F+G-F-GG+F-G+F+G-F+GG-F-G+F+G-F-GGGG+F-G+F+G-F-GG+F-G+F+G-F+GG-F-G+F+G-F+GGGG-F-G+F+G-F-GG+F-G+F+G-F+GG-F-G+F+G-F-GGGGGGGG-GGGGGGGG")
+		XCTAssertEqual(lSystem.produce(generationCount: 2), "F-G+F+G-F-GG+F-G+F+G-F+GG-F-G+F+G-F-GGGG-GGGG")
 	}
     /// Returns path to the built products directory.
     var productsDirectory: URL {
