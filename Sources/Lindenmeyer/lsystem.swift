@@ -5,13 +5,13 @@ class ProductionRule {
         self.predecessor = predecessor
         self.successor = successor
     }
-    func validate(alphabet: Set<Character>) -> Bool {
+    func validate(alphabet: Set<Character>) -> Character? {
         for character in successor {
                 if !alphabet.contains(character) {
-                    return false
+                    return character
                 }
             }
-        return true
+        return nil
     }
     func prettyPrint() -> String {
         "\"\(predecessor)\" -> \"\(successor)\""
@@ -30,8 +30,8 @@ class LSystem {
             tempRules[character] = Optional(Optional(nil))
         }
         for rule in productionRules {
-            if !rule.validate(alphabet:self.alphabet) {
-                fatalError("Rule: \(rule.prettyPrint()) does not validate\nagainst the alphabet \(alphabet)")
+            if let char = rule.validate(alphabet:self.alphabet) {
+                fatalError("Rule: \"\(char)\" from \(rule.prettyPrint()) does not validate\nagainst the alphabet \(alphabet)")
             }
             if let currentRule = tempRules[rule.predecessor] {
                 if let currentRuleExists = currentRule {
