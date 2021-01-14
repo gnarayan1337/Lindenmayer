@@ -46,22 +46,10 @@ class LSystem {
         self.rules = tempRules
     }
     func nonTerminals() -> Set<Character> {
-        var res: Set<Character> = Set()
-        for (k, v) in self.rules {
-            if v != nil {
-                res.insert(k)
-            }
-        }
-        return res
+        Set(self.rules.filter { $0.value != nil }.map { $0.key })
     }
     func terminals() -> Set<Character> {
-        var res: Set<Character> = Set()
-        for (k, v) in self.rules {
-            if v == nil {
-                res.insert(k)
-            }
-        }
-        return res
+        Set(self.rules.filter { $0.value == nil }.map { $0.key })
     }
     func produce(generationCount: UInt) -> String {
         if generationCount == 0 {
