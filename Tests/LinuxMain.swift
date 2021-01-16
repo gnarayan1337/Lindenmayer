@@ -1,4 +1,3 @@
-#if os(Linux)
 import XCTest
 
 import LindenmeyerTests
@@ -6,4 +5,3 @@ import LindenmeyerTests
 var tests = [XCTestCaseEntry]()
 tests += LindenmeyerTests.allTests()
 XCTMain(tests)
-#endif
