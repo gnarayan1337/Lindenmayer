@@ -51,12 +51,5 @@ final class LindenmayerTests: XCTestCase {
         let sys = SimpleL(["F": "F-G+F+G-F", "G" : "GG"], "F-G-G")
         XCTAssertEqual(sys(2), "F-G+F+G-F-GG+F-G+F+G-F+GG-F-G+F+G-F-GGGG-GGGG")
     }
-    static var allTests = [
-        ("test: algae (char + incremental)", testIncrementalAlgae),
-        ("test: algae (char)", testAlgae),
-        ("test: fractal tree (char)", testFractalTree),
-        ("test: cantor set (char)", testCantorSet),
-        ("test: koch curve (char)", testKochCurve),
-        ("test: sierpinski triangle (char)", testSierpinskiTriange)
-    ]
+    
 }

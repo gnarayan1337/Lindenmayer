@@ -1,7 +1,5 @@
 import XCTest
 
-import LindenmayerTests
+@testable import IgisTests
 
-var tests = [XCTestCaseEntry]()
-tests += LindenmayerTests.allTests()
-XCTMain(tests)
+fatalError("Run the tests with `swift test --enable-test-discovery`.")
