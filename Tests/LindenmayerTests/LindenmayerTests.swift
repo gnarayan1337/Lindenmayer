@@ -1,7 +1,7 @@
 import XCTest
-@testable import Lindenmeyer
+@testable import Lindenmayer
 
-final class LindenmeyerTests: XCTestCase {
+final class LindenmayerTests: XCTestCase {
     typealias Rules = [ProductionRule<Character, String>]
     func SimpleL(_ inputRules: [Character:String], _ axiom: String) -> (UInt) -> String {
         var rules: Rules = []

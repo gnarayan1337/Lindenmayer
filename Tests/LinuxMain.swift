@@ -1,7 +1,7 @@
 import XCTest
 
-import LindenmeyerTests
+import LindenmayerTests
 
 var tests = [XCTestCaseEntry]()
-tests += LindenmeyerTests.allTests()
+tests += LindenmayerTests.allTests()
 XCTMain(tests)
