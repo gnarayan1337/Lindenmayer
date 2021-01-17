@@ -5,4 +5,10 @@
 #
 #  Created by Mukul Agarwal on 1/16/21.
 #  
-open -axcode .
+
+if [ "$(uname)" = "Darwin" ]; then
+		open -axcode .
+else
+		echo "Not macOS. Xcode is unavailable."
+fi
+
