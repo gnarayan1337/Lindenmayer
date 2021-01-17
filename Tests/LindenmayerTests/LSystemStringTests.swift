@@ -1,7 +1,7 @@
 import XCTest
 @testable import Lindenmayer
 
-final class LindenmayerTests: XCTestCase {
+final class LSystemStringTests: XCTestCase {
     typealias Rules = [ProductionRule<Character, String>]
     func SimpleL(_ alphabet: String, _ inputRules: [Character:String], _ axiom: String) -> (UInt) -> String {
         var rules: Rules = []
@@ -14,6 +14,7 @@ final class LindenmayerTests: XCTestCase {
         }
     }
     func testIncrementalAlgae() {
+        //src:https://en.wikipedia.org/wiki/L-system#Example_1:_Algae
         let sys = SimpleL("AB", ["A" : "AB", "B" : "A"], "A")
         XCTAssertEqual(sys(1), "AB")
         XCTAssertEqual(sys(1), "ABA")
@@ -30,18 +31,18 @@ final class LindenmayerTests: XCTestCase {
     }
     
     func testFractalTree() {
-        //src:https://en.wikipedia.org/wiki/L-system#Example_1:_Algae
+        //src:https://en.wikipedia.org/wiki/L-system#Example_2:_Fractal_(binary)_tree
         let sys = SimpleL("110[]", ["1":"11","0":"1[0]0"], "0")
         XCTAssertEqual(sys(3), "1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0")
     }
     
-    func testCantorSet() throws {
+    func testCantorSet() {
         //src:https://en.wikipedia.org/wiki/L-system#Example_3:_Cantor_set
         let sys = SimpleL("AB", ["A":"ABA","B":"BBB"], "A")
         XCTAssertEqual(sys(3), "ABABBBABABBBBBBBBBABABBBABA")
     }
 
-    func testKochCurve() throws {
+    func testKochCurve() {
         //src:https://en.wikipedia.org/wiki/L-system#Example_4:_Koch_curve
         let sys = SimpleL("F+-", ["F":"F+F-F-F+F"], "F")
         XCTAssertEqual(sys(2), "F+F-F-F+F+F+F-F-F+F-F+F-F-F+F-F+F-F-F+F+F+F-F-F+F")
@@ -53,3 +54,4 @@ final class LindenmayerTests: XCTestCase {
     }
     
 }
+
