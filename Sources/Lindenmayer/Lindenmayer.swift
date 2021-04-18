@@ -2,9 +2,9 @@ class LSystem<T: Hashable & Equatable, U: Collection & Equatable & Take>
     where U.Element == T, U.T == T
 {
     private let rules: [T : U];
-    private let axiom : U;
-    private var state : U;
-    private let alphabet: Set<T>;
+    public let axiom : U;
+    public var state : U;
+    public let alphabet: Set<T>;
     init<V: Collection>(alphabet: V, validator: Optional<(T) -> Bool> = nil, axiom: U, productionRules: [ProductionRule<T,U>]) throws where V.Element == T{
         self.alphabet = Set(alphabet)
         self.axiom = axiom
