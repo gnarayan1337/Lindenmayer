@@ -12,31 +12,31 @@ final class LSystemEnumTests: XCTestCase {
         ]
         let sys: Sys = try! LSystem(alphabet: [.A, .B], axiom: [.A], productionRules: rules)
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 1),
             states("AB")
         )
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 2),
             states("ABA")
         )
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 3),
             states("ABAAB")
         )
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 4),
             states("ABAABABA")
         )
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 5),
             states("ABAABABAABAAB")
         )
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 6),
             states("ABAABABAABAABABAABABA")
         )
         XCTAssertEqual(
-            sys.produce(),
+          sys.produce(generationCount: 7),
             states("ABAABABAABAABABAABABAABAABABAABAAB")
         )
     }

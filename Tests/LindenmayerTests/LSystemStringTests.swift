@@ -17,12 +17,12 @@ final class LSystemStringTests: XCTestCase {
         //src:https://en.wikipedia.org/wiki/L-system#Example_1:_Algae
         let sys = SimpleL("AB", ["A" : "AB", "B" : "A"], "A")
         XCTAssertEqual(sys(1), "AB")
-        XCTAssertEqual(sys(1), "ABA")
-        XCTAssertEqual(sys(1), "ABAAB")
-        XCTAssertEqual(sys(1), "ABAABABA")
-        XCTAssertEqual(sys(1), "ABAABABAABAAB")
-        XCTAssertEqual(sys(1), "ABAABABAABAABABAABABA")
-        XCTAssertEqual(sys(1), "ABAABABAABAABABAABABAABAABABAABAAB")
+        XCTAssertEqual(sys(2), "ABA")
+        XCTAssertEqual(sys(3), "ABAAB")
+        XCTAssertEqual(sys(4), "ABAABABA")
+        XCTAssertEqual(sys(5), "ABAABABAABAAB")
+        XCTAssertEqual(sys(6), "ABAABABAABAABABAABABA")
+        XCTAssertEqual(sys(7), "ABAABABAABAABABAABABAABAABABAABAAB")
     }
     func testAlgae() {
         //src:https://en.wikipedia.org/wiki/L-system#Example_1:_Algae
