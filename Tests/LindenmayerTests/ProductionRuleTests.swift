@@ -38,9 +38,6 @@ final class ProductionRuleTests: XCTestCase {
                 XCTAssertEqual(invalid, "A")
                 XCTAssertEqual(predecessor, true)
                 XCTAssertEqual(alphabet, predecessorBadAlphabet)
-            default:
-                XCTFail("not a validationError")
-                
             }
         }
     }
@@ -54,9 +51,6 @@ final class ProductionRuleTests: XCTestCase {
                 XCTAssertEqual(invalid, "D")
                 XCTAssertEqual(predecessor, false)
                 XCTAssertEqual(alphabet, successorBadAlphabet)
-            default:
-                XCTFail("not a validationError")
-                
             }
         }
 
